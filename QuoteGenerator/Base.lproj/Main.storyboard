@@ -45,6 +45,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Z3-9V-wQY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="732" y="32.833583208395808"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Master View Controller-->
         <scene sceneID="pnW-6n-jB7">
             <objects>
-                <viewController id="7F6-9H-oUL" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="7F6-9H-oUL" customClass="MasterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sJB-RZ-ZBD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +93,6 @@
                                                     <rect key="frame" x="15" y="11" width="345" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="M6K-1C-EEn"/>
-                                                        <constraint firstAttribute="width" constant="345" id="quY-c8-uGM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>

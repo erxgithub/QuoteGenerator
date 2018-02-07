@@ -1,5 +1,5 @@
 //
-//  MasterViewController.m
+//  QuoteViewController
 //  QuoteGenerator
 //
 //  Created by Eric Gregor on 2018-02-07.
@@ -13,25 +13,54 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *quoteTextView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-
-@property (nonatomic, strong) Quote *quote;
-
 @end
 
 @implementation QuoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  self.savedQuotes = [@[] mutableCopy];
     // Do any additional setup after loading the view.
-    
-    self.quote = [[Quote alloc] initWithQuote:@"This is a great quote." author:@"Some Guy"];
-    
+  
     [self setupQuote];
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma  mark - Action
+- (IBAction)save:(UIButton *)sender {
+  
+  
+  Quote *quote = [[Quote alloc] initWithQuote:self.quoteTextView.text
+                                       author:self.authorLabel.text];
+  [self.savedQuotes addObject:quote];
+  
+  // TODO: show saved alert dialog
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
+  
+  UIAlertAction *okAction = [UIAlertAction
+                             actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction *action)
+                             {
+                               NSLog(@"OK action");
+                             }];
+  
+  [alertController addAction:okAction];
+  
+  [self presentViewController:alertController animated:YES completion:nil];
+  
+  
+  NSLog(@"saved quote.");
+  for (Quote *quote in self.savedQuotes) {
+      NSLog(@"saved quote: %@", quote.quoteText);
+  }
+  
+  
 }
 
 /*
@@ -45,9 +74,13 @@
 */
 
 - (void) setupQuote {
-    self.quoteTextView.text = self.quote.quoteText;
-    self.authorLabel.text = self.quote.author;
-    [self.authorLabel sizeToFit];
+  
+  // Go to network for random quote and background image
+  
+  
+  self.quoteTextView.text = @"This is a great quote.";
+  self.authorLabel.text = @"Some Guy";
+  [self.authorLabel sizeToFit];
 }
 
 @end

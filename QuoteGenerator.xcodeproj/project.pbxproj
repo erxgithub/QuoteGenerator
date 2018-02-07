@@ -16,6 +16,7 @@
 		588BF51C202B955B004DCD70 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51B202B955B004DCD70 /* DetailViewController.m */; };
 		588BF51F202B996B004DCD70 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51E202B996B004DCD70 /* Quote.m */; };
 		588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */; };
+		91F00AC7202BACDF00C43BC6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F00AC6202BACDF00C43BC6 /* MasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		588BF51E202B996B004DCD70 /* Quote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
 		588BF520202B9E20004DCD70 /* QuoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuoteTableViewCell.h; sourceTree = "<group>"; };
 		588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteTableViewCell.m; sourceTree = "<group>"; };
+		91F00AC5202BACDF00C43BC6 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		91F00AC6202BACDF00C43BC6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				588BF517202B94B7004DCD70 /* QuoteViewController.h */,
 				588BF518202B94B7004DCD70 /* QuoteViewController.m */,
 				588BF507202B9141004DCD70 /* Main.storyboard */,
+				91F00AC5202BACDF00C43BC6 /* MasterViewController.h */,
+				91F00AC6202BACDF00C43BC6 /* MasterViewController.m */,
 				588BF520202B9E20004DCD70 /* QuoteTableViewCell.h */,
 				588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */,
 				588BF51D202B996B004DCD70 /* Quote.h */,
@@ -163,6 +168,7 @@
 				588BF51F202B996B004DCD70 /* Quote.m in Sources */,
 				588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */,
 				588BF51C202B955B004DCD70 /* DetailViewController.m in Sources */,
+				91F00AC7202BACDF00C43BC6 /* MasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
