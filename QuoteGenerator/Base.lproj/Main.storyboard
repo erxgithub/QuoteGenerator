@@ -56,7 +56,7 @@
                     <navigationItem key="navigationItem" id="bXl-aV-9bJ">
                         <barButtonItem key="rightBarButtonItem" title="Saved" id="M5v-Ik-s5O">
                             <connections>
-                                <segue destination="7F6-9H-oUL" kind="show" id="bxv-vK-YDs"/>
+                                <segue destination="7F6-9H-oUL" kind="show" identifier="showQuotes" id="bxv-vK-YDs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,8 +106,15 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="BOH-TO-PXf" secondAttribute="bottom" constant="1" id="n8a-vF-kQI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="quoteLabel" destination="BOH-TO-PXf" id="fLy-FP-HaW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7F6-9H-oUL" id="gjw-hj-weA"/>
+                                    <outlet property="delegate" destination="7F6-9H-oUL" id="k8R-iK-S9w"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

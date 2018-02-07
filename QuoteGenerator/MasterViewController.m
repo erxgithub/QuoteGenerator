@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "QuoteTableViewCell.h"
 
 @interface MasterViewController ()
 
@@ -18,6 +19,18 @@
     [super viewDidLoad];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.savedQuotes.count;
+}
+
+
+- (QuoteTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  QuoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuoteCell" forIndexPath:indexPath];
+  
+  cell.quote = self.savedQuotes[indexPath.row];
+  cell.quoteLabel.text = cell.quote.quoteText;
+  return cell;
+}
 /*
 #pragma mark - Navigation
 

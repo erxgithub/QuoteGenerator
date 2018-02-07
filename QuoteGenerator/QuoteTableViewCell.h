@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Quote.h"
 
 @interface QuoteTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
+@property (strong, nonatomic) Quote *quote;
 
 @end
