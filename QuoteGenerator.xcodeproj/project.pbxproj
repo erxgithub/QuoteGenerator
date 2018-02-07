@@ -8,24 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		588BF503202B9141004DCD70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF502202B9141004DCD70 /* AppDelegate.m */; };
-		588BF506202B9141004DCD70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF505202B9141004DCD70 /* ViewController.m */; };
 		588BF509202B9141004DCD70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588BF507202B9141004DCD70 /* Main.storyboard */; };
 		588BF50B202B9141004DCD70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 588BF50A202B9141004DCD70 /* Assets.xcassets */; };
 		588BF50E202B9141004DCD70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588BF50C202B9141004DCD70 /* LaunchScreen.storyboard */; };
 		588BF511202B9141004DCD70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF510202B9141004DCD70 /* main.m */; };
+		588BF519202B94B7004DCD70 /* QuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF518202B94B7004DCD70 /* QuoteViewController.m */; };
+		588BF51C202B955B004DCD70 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51B202B955B004DCD70 /* DetailViewController.m */; };
+		588BF51F202B996B004DCD70 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51E202B996B004DCD70 /* Quote.m */; };
+		588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		588BF4FE202B9141004DCD70 /* QuoteGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		588BF501202B9141004DCD70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		588BF502202B9141004DCD70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		588BF504202B9141004DCD70 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		588BF505202B9141004DCD70 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		588BF508202B9141004DCD70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		588BF50A202B9141004DCD70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		588BF50D202B9141004DCD70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		588BF50F202B9141004DCD70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		588BF510202B9141004DCD70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		588BF517202B94B7004DCD70 /* QuoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuoteViewController.h; sourceTree = "<group>"; };
+		588BF518202B94B7004DCD70 /* QuoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteViewController.m; sourceTree = "<group>"; };
+		588BF51A202B955B004DCD70 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		588BF51B202B955B004DCD70 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		588BF51D202B996B004DCD70 /* Quote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
+		588BF51E202B996B004DCD70 /* Quote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
+		588BF520202B9E20004DCD70 /* QuoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuoteTableViewCell.h; sourceTree = "<group>"; };
+		588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +69,15 @@
 			children = (
 				588BF501202B9141004DCD70 /* AppDelegate.h */,
 				588BF502202B9141004DCD70 /* AppDelegate.m */,
-				588BF504202B9141004DCD70 /* ViewController.h */,
-				588BF505202B9141004DCD70 /* ViewController.m */,
+				588BF517202B94B7004DCD70 /* QuoteViewController.h */,
+				588BF518202B94B7004DCD70 /* QuoteViewController.m */,
 				588BF507202B9141004DCD70 /* Main.storyboard */,
+				588BF520202B9E20004DCD70 /* QuoteTableViewCell.h */,
+				588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */,
+				588BF51D202B996B004DCD70 /* Quote.h */,
+				588BF51E202B996B004DCD70 /* Quote.m */,
+				588BF51A202B955B004DCD70 /* DetailViewController.h */,
+				588BF51B202B955B004DCD70 /* DetailViewController.m */,
 				588BF50A202B9141004DCD70 /* Assets.xcassets */,
 				588BF50C202B9141004DCD70 /* LaunchScreen.storyboard */,
 				588BF50F202B9141004DCD70 /* Info.plist */,
@@ -142,9 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				588BF506202B9141004DCD70 /* ViewController.m in Sources */,
 				588BF511202B9141004DCD70 /* main.m in Sources */,
+				588BF519202B94B7004DCD70 /* QuoteViewController.m in Sources */,
 				588BF503202B9141004DCD70 /* AppDelegate.m in Sources */,
+				588BF51F202B996B004DCD70 /* Quote.m in Sources */,
+				588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */,
+				588BF51C202B955B004DCD70 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
