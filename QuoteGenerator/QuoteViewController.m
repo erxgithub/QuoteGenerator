@@ -11,6 +11,7 @@
 #import "Quote.h"
 
 @interface QuoteViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
 
 @property (weak, nonatomic) IBOutlet UITextView *quoteTextView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
@@ -23,9 +24,7 @@
   self.savedQuotes = [@[] mutableCopy];
     // Do any additional setup after loading the view.
  
-    
-    
-    [self setupQuote];
+  [self updateQuoteView];
 
 }
 
@@ -42,7 +41,6 @@
                                        author:self.authorLabel.text];
   [self.savedQuotes addObject:quote];
   
-  // TODO: show saved alert dialog
   UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
   
   UIAlertAction *okAction = [UIAlertAction
@@ -64,7 +62,8 @@
   }
 }
 - (IBAction)newQuote:(UIButton *)sender {
-  [self setupQuote];
+ 
+  [self updateQuoteView];
   [self.view setNeedsDisplay];
 }
 
@@ -79,11 +78,8 @@
   }
 }
 
-
 - (void) setupQuote {
   
-  // Go to network for random quote and background image
-    
     NSURL *url = [NSURL URLWithString:@"https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=10"];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     urlRequest.URL = url;
@@ -114,12 +110,71 @@
             self.quoteTextView.text = result[@"quote"];
             self.authorLabel.text = result[@"author"];
             [self.authorLabel sizeToFit];
-            
-            NSLog(@"%@", result);
         }];
     }];
     [dataTask resume];
     
+}
+
+- (void)setupBackgroundImage {
+  
+  NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=f71ef240962b89ee62eb2a63d8524fe9&tags=landscape"];
+  NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
+  NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+  configuration.waitsForConnectivity = YES;
+  configuration.allowsCellularAccess = NO;
+  
+  NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+  NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    
+    if (error) {
+      // Handle the error
+      NSLog(@"error: %@", error.localizedDescription);
+      return;
+    }
+    NSError *jsonError = nil;
+    
+    NSArray *backgroundImages  = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError][@"photos"][@"photo"];
+    
+    if (jsonError) {
+      // Handle JSON error
+      NSLog(@"JSON error %@", jsonError.localizedDescription);
+      return;
+    }
+    
+    NSMutableArray<NSString *> *urls = [@[] mutableCopy];
+    for (NSDictionary* bgI in backgroundImages) {
+      NSString* url = [self makeURLWithFarm:bgI[@"farm"] Server:bgI[@"server"] ID:bgI[@"id"] Secret:bgI[@"secret"]];
+      [urls addObject:url];
+    }
+    
+    // get a random url
+    NSInteger index = arc4random_uniform(urls.count - 1);
+    NSString *imageURL = urls[index];
+//    NSLog(@"%@", imageURL);
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+      // This will run on the main queue
+      self.bgImageView.image = [UIImage imageWithData:
+                                [NSData dataWithContentsOfURL:
+                                 [NSURL URLWithString:imageURL]]];
+
+      
+      
+    }];
+  }];
+  [dataTask resume];
+}
+
+- (NSString *)makeURLWithFarm:(NSString *)farm Server:(NSString *)server ID:(NSString *)idNum Secret:(NSString *)secret
+{
+  return [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", farm, server, idNum, secret];
+}
+
+
+- (void)updateQuoteView {
+  [self setupQuote];
+  [self setupBackgroundImage];
 }
 
 @end

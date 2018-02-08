@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample1" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-w8-Z8r">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-w8-Z8r">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Quote" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aE6-S5-B2T">
@@ -74,6 +74,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="V1Z-9w-VXg" id="DdZ-WE-tEX"/>
+                        <outlet property="bgImageView" destination="rxa-w8-Z8r" id="QdD-SF-w7X"/>
                         <outlet property="quoteTextView" destination="aE6-S5-B2T" id="kmM-ZZ-AHt"/>
                     </connections>
                 </viewController>
@@ -156,7 +157,4 @@
             <point key="canvasLocation" x="32" y="33.283358320839582"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="sample1" width="1920" height="1200"/>
-    </resources>
 </document>
