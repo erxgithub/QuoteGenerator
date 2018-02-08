@@ -11,6 +11,8 @@
 
 @interface QuoteView : UIView
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
+@property (strong, nonatomic) IBOutlet UIButton *quoteButton;
+
 @property (nonatomic) Quote *quote;
 
 - (void)setQuoteBackgroundImage:(UIImage *)image;

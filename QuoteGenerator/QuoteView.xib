@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-af-Wbj">
-                    <rect key="frame" x="144" y="568" width="37" height="30"/>
+                    <rect key="frame" x="144" y="601" width="37" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="close"/>
                 </button>
@@ -29,27 +29,46 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imL-b4-rOw">
+                    <rect key="frame" x="16" y="542" width="77" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="New Quote"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i0-59-Kzf">
+                    <rect key="frame" x="8" y="323" width="359" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRt-8S-wQO">
-                    <rect key="frame" x="62" y="242" width="42" height="21"/>
+                    <rect key="frame" x="72" y="379" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-qN-HTp">
-                    <rect key="frame" x="42" y="269" width="240" height="128"/>
+                    <rect key="frame" x="52" y="406" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1i0-59-Kzf" secondAttribute="trailing" constant="8" id="4Y6-1k-Ilr"/>
+                <constraint firstItem="1i0-59-Kzf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Ma-Ek-zqg"/>
+                <constraint firstItem="1i0-59-Kzf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="SPO-rP-ZhG"/>
+                <constraint firstItem="1i0-59-Kzf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ow2-ze-vtQ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="QuoteTextView" destination="2Sz-9F-eOe" id="aLw-d9-tUE"/>
                 <outlet property="authorLabel" destination="dRt-8S-wQO" id="M3b-Ry-bwF"/>
                 <outlet property="bgImageView" destination="QiH-qN-HTp" id="5t9-BH-c5C"/>
                 <outlet property="closeButton" destination="2R6-af-Wbj" id="Hcq-qX-fNh"/>
+                <outlet property="quoteButton" destination="imL-b4-rOw" id="jQ5-Be-nwX"/>
+                <outlet property="quoteLabel" destination="1i0-59-Kzf" id="M8J-fW-5sZ"/>
             </connections>
-            <point key="canvasLocation" x="-112" y="37"/>
+            <point key="canvasLocation" x="-112.5" y="36.5"/>
         </view>
     </objects>
 </document>

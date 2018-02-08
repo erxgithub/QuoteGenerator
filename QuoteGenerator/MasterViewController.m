@@ -39,12 +39,17 @@
 //  self.quoteView.bgImageView.image = self.quote.backgroundImage;
   
   [self.quoteView.closeButton addTarget:self action:@selector(closeTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.quoteView.quoteButton addTarget:self action:@selector(quoteTapped:) forControlEvents:UIControlEventTouchUpInside];
    }
 
 - (void)closeTapped:(UIButton *)sender {
   [UIView animateWithDuration:0.3 animations:^{
     self.quoteView.alpha = 0.0;
   }];
+}
+
+- (void)quoteTapped:(UIButton *)sender {
+    [self updateQuoteView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
