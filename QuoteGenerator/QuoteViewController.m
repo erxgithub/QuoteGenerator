@@ -37,11 +37,13 @@
 - (IBAction)save:(UIButton *)sender {
   
   
-  Quote *quote = [[Quote alloc] initWithQuote:self.quoteTextView.text
-                                       author:self.authorLabel.text];
-  [self.savedQuotes addObject:quote];
+    Quote *quote = [[Quote alloc] initWithQuote:self.quoteTextView.text
+                                         author:self.authorLabel.text
+                                          image:self.bgImageView.image];
+    [self.savedQuotes addObject:quote];
   
-  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
+  
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
   
   UIAlertAction *okAction = [UIAlertAction
                              actionWithTitle:NSLocalizedString(@"OK", @"OK action")

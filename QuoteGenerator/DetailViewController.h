@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Quote.h"
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) Quote *quote;
 
 @end

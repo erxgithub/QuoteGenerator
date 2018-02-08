@@ -10,12 +10,13 @@
 
 @implementation Quote
 
-- (instancetype)initWithQuote: (NSString *)quote author: (NSString *)author;
+- (instancetype)initWithQuote:(NSString *)quote author:(NSString *)author image:(UIImage *)image
 {
     self = [super init];
     if (self) {
         _quoteText = quote;
         _author = author;
+        _backgroundImage = image;
     }
     return self;
 }

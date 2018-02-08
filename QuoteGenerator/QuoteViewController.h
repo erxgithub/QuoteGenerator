@@ -10,6 +10,7 @@
 #import "Quote.h"
 
 @interface QuoteViewController : UIViewController
+
 @property (nonatomic, strong) NSMutableArray<Quote *> *savedQuotes;
 
 @end

@@ -6,13 +6,14 @@
 //  Copyright © 2018 Eric Gregor. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Quote : NSObject
 
 @property (nonatomic, strong) NSString *quoteText;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) UIImage *backgroundImage;
 
-- (instancetype)initWithQuote: (NSString *)quote author: (NSString *)author;
+- (instancetype)initWithQuote:(NSString *)quote author:(NSString *)author image:(UIImage *)image;
 
 @end
