@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _quoteText = quote;
+        _text = quote;
         _author = author;
         _backgroundImage = image;
     }

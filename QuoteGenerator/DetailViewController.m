@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.quoteTextView.text = self.quote.quoteText;
+    self.quoteTextView.text = self.quote.text;
     self.authorLabel.text = self.quote.author;
     self.bgImageView.image = self.quote.backgroundImage;
     [self.authorLabel sizeToFit];

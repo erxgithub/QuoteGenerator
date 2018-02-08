@@ -10,7 +10,7 @@
 
 @interface Quote : NSObject
 
-@property (nonatomic, strong) NSString *quoteText;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) UIImage *backgroundImage;
 
