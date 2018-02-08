@@ -62,8 +62,10 @@
   for (Quote *quote in self.savedQuotes) {
       NSLog(@"saved quote: %@", quote.quoteText);
   }
-  
-  
+}
+- (IBAction)newQuote:(UIButton *)sender {
+  [self setupQuote];
+  [self.view setNeedsDisplay];
 }
 
 
