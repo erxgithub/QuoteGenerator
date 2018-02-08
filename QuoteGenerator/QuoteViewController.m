@@ -22,7 +22,9 @@
     [super viewDidLoad];
   self.savedQuotes = [@[] mutableCopy];
     // Do any additional setup after loading the view.
-  
+ 
+    
+    
     [self setupQuote];
 
 }
@@ -79,11 +81,43 @@
 - (void) setupQuote {
   
   // Go to network for random quote and background image
-  
-  
-  self.quoteTextView.text = @"This is a great quote.";
-  self.authorLabel.text = @"Some Guy";
-  [self.authorLabel sizeToFit];
+    
+    NSURL *url = [NSURL URLWithString:@"https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=10"];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    urlRequest.URL = url;
+    [urlRequest addValue:@"b80vKNg6ETmshYheTwJh7uNaMGoVp1gYweSjsn2kX56aXJ9Ig2" forHTTPHeaderField:@"X-Mashape-Key"];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.waitsForConnectivity = YES;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error) {
+            // Handle the error
+            NSLog(@"error: %@", error.localizedDescription);
+            return;
+        }
+        NSError *jsonError = nil;
+        
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        if (jsonError) {
+            // Handle JSON error
+            NSLog(@"JSON error %@", jsonError.localizedDescription);
+            return;
+        }
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // This will run on the main queue
+            
+            self.quoteTextView.text = result[@"quote"];
+            self.authorLabel.text = result[@"author"];
+            [self.authorLabel sizeToFit];
+            
+            NSLog(@"%@", result);
+        }];
+    }];
+    [dataTask resume];
+    
 }
 
 @end
