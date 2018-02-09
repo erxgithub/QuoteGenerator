@@ -12,7 +12,6 @@
 		588BF50B202B9141004DCD70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 588BF50A202B9141004DCD70 /* Assets.xcassets */; };
 		588BF50E202B9141004DCD70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588BF50C202B9141004DCD70 /* LaunchScreen.storyboard */; };
 		588BF511202B9141004DCD70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF510202B9141004DCD70 /* main.m */; };
-		588BF519202B94B7004DCD70 /* QuoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF518202B94B7004DCD70 /* QuoteViewController.m */; };
 		588BF51C202B955B004DCD70 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51B202B955B004DCD70 /* DetailViewController.m */; };
 		588BF51F202B996B004DCD70 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF51E202B996B004DCD70 /* Quote.m */; };
 		588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 588BF521202B9E20004DCD70 /* QuoteTableViewCell.m */; };
@@ -31,8 +30,6 @@
 		588BF50D202B9141004DCD70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		588BF50F202B9141004DCD70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		588BF510202B9141004DCD70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		588BF517202B94B7004DCD70 /* QuoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuoteViewController.h; sourceTree = "<group>"; };
-		588BF518202B94B7004DCD70 /* QuoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuoteViewController.m; sourceTree = "<group>"; };
 		588BF51A202B955B004DCD70 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		588BF51B202B955B004DCD70 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		588BF51D202B996B004DCD70 /* Quote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
@@ -80,8 +77,6 @@
 			children = (
 				588BF501202B9141004DCD70 /* AppDelegate.h */,
 				588BF502202B9141004DCD70 /* AppDelegate.m */,
-				588BF517202B94B7004DCD70 /* QuoteViewController.h */,
-				588BF518202B94B7004DCD70 /* QuoteViewController.m */,
 				588BF507202B9141004DCD70 /* Main.storyboard */,
 				91F00AC5202BACDF00C43BC6 /* MasterViewController.h */,
 				91F00AC6202BACDF00C43BC6 /* MasterViewController.m */,
@@ -177,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				588BF511202B9141004DCD70 /* main.m in Sources */,
-				588BF519202B94B7004DCD70 /* QuoteViewController.m in Sources */,
 				588BF503202B9141004DCD70 /* AppDelegate.m in Sources */,
 				588BF51F202B996B004DCD70 /* Quote.m in Sources */,
 				588BF522202B9E20004DCD70 /* QuoteTableViewCell.m in Sources */,

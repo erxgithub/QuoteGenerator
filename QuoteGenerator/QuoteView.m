@@ -7,7 +7,7 @@
 //
 
 #import "QuoteView.h"
-#import "Quote.h"
+
 
 @interface QuoteView()
 
@@ -26,41 +26,40 @@
   return self;
 }
 
-
 // make this just handle the text
 - (void)setQuote:(Quote *)quote {
   // setup your outlets
-  
+  _quote = quote;
   dispatch_async(dispatch_get_main_queue(), ^{
-//    self.QuoteTextView.text = quote.text;
-      self.quoteLabel.text = quote.text;
-      [self.quoteLabel sizeToFit];
+    //    self.QuoteTextView.text = quote.text;
+    self.quoteLabel.text = quote.text;
+    [self.quoteLabel sizeToFit];
     self.authorLabel.text = quote.author;
-      [self.authorLabel sizeToFit];
-  
+    [self.authorLabel sizeToFit];
+    
     [UIView animateWithDuration:0.3 animations:^{
       self.alpha = 1.0;
     }];
   });
-  
-  
-  
 }
 
 // create a parallel method to handle the image request
 - (void)setQuoteBackgroundImage:(UIImage *)image
 {
+  
   dispatch_async(dispatch_get_main_queue(), ^{
     self.bgImageView.image = image;
-    
     
     [UIView animateWithDuration:0.3 animations:^{
       self.alpha = 1.0;
     }];
-//    [self setNeedsDisplay];
     
   });
+}
 
+- (void)saveViewContentToQuote
+{
+  self.quote = [[Quote alloc] initWithQuote:self.quoteLabel.text author:self.authorLabel.text image:self.bgImageView.image];
 }
 
 @end

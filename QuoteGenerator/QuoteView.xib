@@ -77,7 +77,7 @@
                     <state key="normal" title="close"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2R6-af-Wbj" secondAttribute="bottom" constant="36" id="4I5-7f-zDQ"/>
                 <constraint firstItem="kbm-VH-fN8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="5Gb-ay-pkv"/>
@@ -103,13 +103,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="authorLabel" destination="dRt-8S-wQO" id="M3b-Ry-bwF"/>
-                <outlet property="authorLabelText" destination="dRt-8S-wQO" id="aeE-6T-U88"/>
                 <outlet property="bgImageView" destination="QiH-qN-HTp" id="5t9-BH-c5C"/>
                 <outlet property="closeButton" destination="2R6-af-Wbj" id="Hcq-qX-fNh"/>
                 <outlet property="quoteButton" destination="imL-b4-rOw" id="jQ5-Be-nwX"/>
-                <outlet property="quoteImage" destination="QiH-qN-HTp" id="V8M-cN-Gxv"/>
                 <outlet property="quoteLabel" destination="1i0-59-Kzf" id="M8J-fW-5sZ"/>
-                <outlet property="quoteLabelText" destination="1i0-59-Kzf" id="00g-Iy-YKG"/>
                 <outlet property="saveButton" destination="yQO-I4-5e0" id="iZ7-eE-IPb"/>
             </connections>
             <point key="canvasLocation" x="-112.5" y="36.5"/>

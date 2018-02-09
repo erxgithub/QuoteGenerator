@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 #import "QuoteTableViewCell.h"
 #import "DetailViewController.h"
-#import "QuoteViewController.h"
 #import "QuoteView.h"
 #import "NetworkManager.h"
 
@@ -26,6 +25,8 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+    // load from realm
     self.savedQuotes = [@[] mutableCopy];
 
   self.quote = [[Quote alloc] initWithQuote:@"" author:@"" image:nil];
@@ -38,15 +39,21 @@
   [self.view addSubview:self.quoteView];
   [self.view bringSubviewToFront:self.quoteView];
   
-//  self.quoteView.QuoteTextView.text = self.quote.quoteText;
-//  self.quoteView.authorLabel.text = self.quote.author;
-//  self.quoteView.bgImageView.image = self.quote.backgroundImage;
-  
   [self.quoteView.closeButton addTarget:self action:@selector(closeTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.quoteView.quoteButton addTarget:self action:@selector(quoteTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.quoteView.saveButton addTarget:self action:@selector(saveTapped:) forControlEvents:UIControlEventTouchUpInside];
    }
 
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+}
+
+- (void)viewDidLayoutSubviews {
+  self.quoteView.frame = self.view.frame;
+}
+
+
+#pragma mark - QuoteView buttons actions
 - (void)closeTapped:(UIButton *)sender {
     [UIView animateWithDuration:0.3 animations:^{
         self.quoteView.alpha = 0.0;
@@ -59,10 +66,8 @@
 }
 
 - (void)saveTapped:(UIButton *)sender {
-    Quote *quote = [[Quote alloc] initWithQuote:self.quoteView.quoteLabelText.text
-                                         author:self.quoteView.authorLabelText.text
-                                          image:self.quoteView.quoteImage.image];
-    [self.savedQuotes addObject:quote];
+  [self.quoteView saveViewContentToQuote];
+  [self.savedQuotes addObject:self.quoteView.quote];
     [self.tableView reloadData];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
@@ -78,15 +83,11 @@
     [alertController addAction:okAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
-    
-    
-    NSLog(@"saved quote.");
-    for (Quote *quote in self.savedQuotes) {
-        NSLog(@"saved quote: %@", quote.text);
-    }
-
+  
+  // write to realm
 }
 
+# pragma mark - tableView button actions
 - (IBAction)closeTableView:(id)sender {
     [self updateQuoteView];
     [UIView animateWithDuration:0.3 animations:^{
@@ -110,20 +111,10 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-//  QuoteViewController *quoteViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"QuoteViewController"];
-//  [self presentViewController:quoteViewController animated:NO completion:nil];
-}
-
-- (void)viewDidLayoutSubviews {
-  self.quoteView.frame = self.view.frame;
-}
-
+# pragma mark - tableView data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.savedQuotes.count;
 }
-
 
 - (QuoteTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   QuoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuoteCell" forIndexPath:indexPath];
@@ -131,6 +122,20 @@
   cell.quote = self.savedQuotes[indexPath.row];
   cell.quoteLabel.text = cell.quote.text;
   return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  // Return NO if you do not want the specified item to be editable.
+  return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    [self.savedQuotes removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    // delete from realm
+    
+  }
 }
 
 #pragma mark - Navigation
@@ -142,36 +147,19 @@
         DetailViewController *dvc = [segue destinationViewController];
         dvc.quote = self.savedQuotes[indexPath.row];
     }
-
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.savedQuotes removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
 }
 
 #pragma mark - Private methods
 - (void)updateQuoteView {
   [self setupQuote];
   [self setupBackgroundImage];
-  NSLog(@"%d, %@", __LINE__, self.quote);
 }
 
+#pragma mark - New Quote
 - (void) setupQuote {
   [NetworkManager getQuoteDataCompletionHandler:^void(Quote *quote) {
-    
+//    self.quoteView.quote = [[Quote alloc] initWithQuote:quote];
     self.quoteView.quote = quote;
-//    self.quote.quoteText = quote.quoteText;
-//    self.quote.author = quote.author;
   }];
 }
 
