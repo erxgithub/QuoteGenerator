@@ -24,7 +24,7 @@
     
     self.quoteTextView.text = self.quote.text;
     self.authorLabel.text = self.quote.author;
-    self.bgImageView.image = self.quote.backgroundImage;
+    self.bgImageView.image = [UIImage imageWithData:self.quote.backgroundImageData];
     [self.authorLabel sizeToFit];
 
 }

@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Realm.h>
 
-@interface Quote : NSObject
+@interface Quote : RLMObject
 
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *author;
-@property (nonatomic, strong) UIImage *backgroundImage;
+@property (nonatomic, strong) NSData *backgroundImageData;
 
 - (instancetype)initWithQuote:(NSString *)quote author:(NSString *)author image:(UIImage *)image;
 
 @end
+

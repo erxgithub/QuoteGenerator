@@ -59,7 +59,9 @@
 
 - (void)saveViewContentToQuote
 {
-  self.quote = [[Quote alloc] initWithQuote:self.quoteLabel.text author:self.authorLabel.text image:self.bgImageView.image];
+  self.quote = [[Quote alloc] initWithQuote:self.quoteLabel.text
+                                     author:self.authorLabel.text
+                                      image:self.bgImageView.image];
 }
 
 @end

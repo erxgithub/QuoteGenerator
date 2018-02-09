@@ -23,13 +23,25 @@
 
 @implementation MasterViewController
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        // load from realm
+        self.savedQuotes = [@[] mutableCopy];
+        RLMResults<Quote *> *quotes = [Quote allObjects];
+        //RLMRealm *realm = [RLMRealm defaultRealm];
+        for (Quote *quote in quotes) {
+            [self.savedQuotes addObject:quote];
+            NSLog(@"%@, %@", quote.text, quote.author);
+        }
+    }
+
+    return self;
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-    // load from realm
-    self.savedQuotes = [@[] mutableCopy];
-
-  self.quote = [[Quote alloc] initWithQuote:@"" author:@"" image:nil];
+  //self.quote = [[Quote alloc] initWithQuote:@"" author:@"" image:nil];
   [self updateQuoteView];
 }
 
@@ -68,8 +80,16 @@
 - (void)saveTapped:(UIButton *)sender {
   [self.quoteView saveViewContentToQuote];
   [self.savedQuotes addObject:self.quoteView.quote];
-    [self.tableView reloadData];
     
+    // write to realm
+    // Persist your data easily
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm addObject:self.quoteView.quote];
+    }];
+
+    [self.tableView reloadData];
+
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction
@@ -83,8 +103,7 @@
     [alertController addAction:okAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
-  
-  // write to realm
+
 }
 
 # pragma mark - tableView button actions
@@ -130,12 +149,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (editingStyle == UITableViewCellEditingStyleDelete) {
-    [self.savedQuotes removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    // delete from realm
-    
-  }
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        Quote* quote = self.savedQuotes[indexPath.row];
+        [realm deleteObject:quote];
+        [self.savedQuotes removeObjectAtIndex:indexPath.row];
+        [realm commitWriteTransaction];
+        //[self.savedQuotes removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        // delete from realm
+        
+    }
 }
 
 #pragma mark - Navigation

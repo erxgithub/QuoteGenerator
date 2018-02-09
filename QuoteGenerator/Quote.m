@@ -16,7 +16,7 @@
     if (self) {
         _text = quote;
         _author = author;
-        _backgroundImage = image;
+        _backgroundImageData = UIImageJPEGRepresentation(image, 1.0);
     }
     return self;
 }

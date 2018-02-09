@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Quote.h"
 
+RLM_ARRAY_TYPE(Quote)
+
 @interface MasterViewController : UIViewController
 
-@property (nonatomic, strong) NSMutableArray<Quote *> *savedQuotes;
+@property (nonatomic, strong) RLMArray<Quote *> *savedQuotes;
+//@property (nonatomic, strong) NSMutableArray<Quote *> *savedQuotes;
 
 @end
