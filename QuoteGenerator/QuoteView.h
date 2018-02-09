@@ -10,10 +10,17 @@
 @class Quote;
 
 @interface QuoteView : UIView
+
+@property (strong, nonatomic) IBOutlet UILabel *quoteLabelText;
+@property (strong, nonatomic) IBOutlet UILabel *authorLabelText;
+@property (strong, nonatomic) IBOutlet UIImageView *quoteImage;
+
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 @property (strong, nonatomic) IBOutlet UIButton *quoteButton;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
 @property (nonatomic) Quote *quote;
 
 - (void)setQuoteBackgroundImage:(UIImage *)image;
+
 @end

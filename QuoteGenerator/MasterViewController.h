@@ -10,7 +10,7 @@
 #import "Quote.h"
 
 @interface MasterViewController : UIViewController
-@property (nonatomic, strong) NSMutableArray<Quote *> *savedQuotes;
 
+@property (nonatomic, strong) NSMutableArray<Quote *> *savedQuotes;
 
 @end

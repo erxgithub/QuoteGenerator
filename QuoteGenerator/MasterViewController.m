@@ -16,14 +16,18 @@
 @interface MasterViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
 @property (nonatomic) QuoteView *quoteView;
 @property (nonatomic,) Quote *quote;
+
 @end
 
 @implementation MasterViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+    self.savedQuotes = [@[] mutableCopy];
+
   self.quote = [[Quote alloc] initWithQuote:@"" author:@"" image:nil];
   [self updateQuoteView];
 }
@@ -40,16 +44,70 @@
   
   [self.quoteView.closeButton addTarget:self action:@selector(closeTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.quoteView.quoteButton addTarget:self action:@selector(quoteTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.quoteView.saveButton addTarget:self action:@selector(saveTapped:) forControlEvents:UIControlEventTouchUpInside];
    }
 
 - (void)closeTapped:(UIButton *)sender {
-  [UIView animateWithDuration:0.3 animations:^{
-    self.quoteView.alpha = 0.0;
-  }];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.quoteView.alpha = 0.0;
+    }];
+    NSLog(@"%@", self.savedQuotes);
 }
 
 - (void)quoteTapped:(UIButton *)sender {
     [self updateQuoteView];
+}
+
+- (void)saveTapped:(UIButton *)sender {
+    Quote *quote = [[Quote alloc] initWithQuote:self.quoteView.quoteLabelText.text
+                                         author:self.quoteView.authorLabelText.text
+                                          image:self.quoteView.quoteImage.image];
+    [self.savedQuotes addObject:quote];
+    [self.tableView reloadData];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSLog(@"OK action");
+                               }];
+    
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+    NSLog(@"saved quote.");
+    for (Quote *quote in self.savedQuotes) {
+        NSLog(@"saved quote: %@", quote.text);
+    }
+
+}
+
+- (IBAction)closeTableView:(id)sender {
+    [self updateQuoteView];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.quoteView.alpha = 1.0;
+    }];
+}
+
+- (IBAction)toggleTableEdit:(id)sender {
+    if ([self.editButton.titleLabel.text  isEqual: @"Edit"]) {
+        [self.tableView setEditing:YES animated:YES];
+        
+        [self.editButton setTitle:@"Done" forState:UIControlStateNormal];
+        [self.editButton setTitle:@"Done" forState:UIControlStateSelected];
+        [self.editButton setTitle:@"Done" forState:UIControlStateHighlighted];
+    } else {
+        [self.tableView setEditing:NO animated:YES];
+        
+        [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [self.editButton setTitle:@"Edit" forState:UIControlStateSelected];
+        [self.editButton setTitle:@"Edit" forState:UIControlStateHighlighted];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

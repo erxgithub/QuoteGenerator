@@ -10,10 +10,11 @@
 #import "Quote.h"
 
 @interface QuoteView()
+
 @property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
-@property (strong, nonatomic) IBOutlet UITextView *QuoteTextView;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
+
 @end
 
 @implementation QuoteView
@@ -31,7 +32,7 @@
   // setup your outlets
   
   dispatch_async(dispatch_get_main_queue(), ^{
-    self.QuoteTextView.text = quote.text;
+//    self.QuoteTextView.text = quote.text;
       self.quoteLabel.text = quote.text;
       [self.quoteLabel sizeToFit];
     self.authorLabel.text = quote.author;

@@ -11,10 +11,11 @@
 #import "Quote.h"
 
 @interface QuoteViewController ()
-@property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
 
+@property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UITextView *quoteTextView;
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+
 @end
 
 @implementation QuoteViewController

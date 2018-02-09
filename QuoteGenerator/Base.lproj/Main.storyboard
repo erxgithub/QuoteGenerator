@@ -163,6 +163,26 @@
                                         <rect key="frame" x="169.5" y="6.5" width="35" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <state key="normal" title="➕"/>
+                                        <connections>
+                                            <action selector="closeTableView:" destination="7F6-9H-oUL" eventType="touchUpInside" id="0C9-rQ-B6N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xys-3X-zeT">
+                                        <rect key="frame" x="284" y="16" width="56" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal" title="Edit"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="toggleTableEdit:" destination="7F6-9H-oUL" eventType="touchUpInside" id="b7z-ZN-4Gz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,12 +202,13 @@
                         <viewLayoutGuide key="safeArea" id="dNU-3L-WiP"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="xys-3X-zeT" id="3ff-hi-ELh"/>
                         <outlet property="tableView" destination="4kJ-Eb-f6i" id="2wf-JE-Wqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgG-2M-Dso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="-17"/>
+            <point key="canvasLocation" x="32.799999999999997" y="-17.541229385307346"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="fJg-pY-aNR">
