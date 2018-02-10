@@ -59,7 +59,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
-//  self.quoteView.frame = self.view.frame;
+  self.quoteView.frame = self.view.frame;
 }
 
 

@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (strong, nonatomic) IBOutlet UIVisualEffectView *blurView;
 
 @end
 
@@ -32,6 +33,30 @@
 
 - (IBAction)backButton:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)shareButton:(UIButton *)sender {
+    [self.blurView setHidden:YES];
+    //takes screenshot
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [keyWindow bounds];
+    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [keyWindow.layer renderInContext:context];
+    UIImage *capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.blurView setHidden:NO];
+    
+    //Share image and text
+    
+    NSString *text = [NSString stringWithFormat:@"Favourite quote"];
+    
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:@[text, capturedScreen]
+     applicationActivities:nil];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 @end

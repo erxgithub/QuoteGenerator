@@ -143,7 +143,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBn-BT-V7a">
-                                            <rect key="frame" x="20" y="139" width="345" height="21"/>
+                                            <rect key="frame" x="20" y="139" width="345" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -167,24 +167,51 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMC-TQ-Uf3">
-                                            <rect key="frame" x="154" y="15" width="67" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                            <state key="normal" title="Back"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                    <integer key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="backButton:" destination="qQN-Qw-4l7" eventType="touchUpInside" id="bcp-IQ-j3V"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="vSO-TL-Mm9">
+                                            <rect key="frame" x="40" y="15" width="295" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMC-TQ-Uf3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <state key="normal" title="Back"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="backButton:" destination="qQN-Qw-4l7" eventType="touchUpInside" id="bcp-IQ-j3V"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8e-PT-vev">
+                                                    <rect key="frame" x="197.5" y="0.0" width="97.5" height="30"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <state key="normal" title="Share"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="shareButton:" destination="qQN-Qw-4l7" eventType="touchUpInside" id="lFR-6t-H3g"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vSO-TL-Mm9" secondAttribute="trailing" constant="40" id="4dF-O3-oqv"/>
+                                        <constraint firstItem="vSO-TL-Mm9" firstAttribute="leading" secondItem="nBX-2m-Nun" secondAttribute="leading" constant="40" id="677-F1-zhW"/>
+                                        <constraint firstItem="vSO-TL-Mm9" firstAttribute="centerX" secondItem="nBX-2m-Nun" secondAttribute="centerX" id="Bg9-qp-tvp"/>
+                                        <constraint firstItem="vSO-TL-Mm9" firstAttribute="centerY" secondItem="nBX-2m-Nun" secondAttribute="centerY" id="Saw-9T-8U5"/>
+                                        <constraint firstItem="vSO-TL-Mm9" firstAttribute="centerX" secondItem="nBX-2m-Nun" secondAttribute="centerX" id="YKQ-st-CTg"/>
+                                    </constraints>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="E0D-ap-Gm0"/>
@@ -211,6 +238,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="aBn-BT-V7a" id="TR6-L7-z0n"/>
                         <outlet property="bgImageView" destination="tIh-uS-pHd" id="Dny-va-G2d"/>
+                        <outlet property="blurView" destination="ADT-hk-WwF" id="TSl-ZF-S3h"/>
                         <outlet property="quoteLabel" destination="d6c-hG-7UA" id="5oQ-3I-rEh"/>
                     </connections>
                 </viewController>
