@@ -17,103 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Quote View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="QuoteViewController" id="BYZ-38-t0r" customClass="QuoteViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample1" translatesAutoresizingMaskIntoConstraints="NO" id="rxa-w8-Z8r">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Quote" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aE6-S5-B2T">
-                                <rect key="frame" x="16" y="90" width="343" height="209"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sG0-Vy-GMy">
-                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O17-4k-L55">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qmu-Ik-7Ja">
-                                            <rect key="frame" x="10" y="0.0" width="355" height="80"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDq-iI-lPv">
-                                                    <rect key="frame" x="0.0" y="25" width="77" height="30"/>
-                                                    <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="New Quote"/>
-                                                    <connections>
-                                                        <action selector="newQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="maP-qN-aET"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-s4-rHg">
-                                                    <rect key="frame" x="184" y="25" width="34" height="30"/>
-                                                    <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" title="Save"/>
-                                                    <connections>
-                                                        <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Z3-9V-wQY"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njg-Zo-IyM">
-                                                    <rect key="frame" x="325" y="25" width="30" height="30"/>
-                                                    <state key="normal" title="List"/>
-                                                    <connections>
-                                                        <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1yp-qv-12s"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="qmu-Ik-7Ja" firstAttribute="leading" secondItem="sG0-Vy-GMy" secondAttribute="leading" constant="10" id="2FW-UI-KZd"/>
-                                    <constraint firstAttribute="height" constant="80" id="61K-Ly-Qbn"/>
-                                    <constraint firstAttribute="bottom" secondItem="qmu-Ik-7Ja" secondAttribute="bottom" id="OyP-ft-0qZ"/>
-                                    <constraint firstItem="qmu-Ik-7Ja" firstAttribute="top" secondItem="sG0-Vy-GMy" secondAttribute="top" id="P8i-J8-gNC"/>
-                                    <constraint firstAttribute="trailing" secondItem="qmu-Ik-7Ja" secondAttribute="trailing" constant="10" id="iDY-3s-zlb"/>
-                                </constraints>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1Z-9w-VXg">
-                                <rect key="frame" x="25" y="314" width="52" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="rxa-w8-Z8r" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Vs-J4-jcH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sG0-Vy-GMy" secondAttribute="trailing" id="Bqe-hP-qIc"/>
-                            <constraint firstItem="rxa-w8-Z8r" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Igt-y0-cFL"/>
-                            <constraint firstItem="rxa-w8-Z8r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LZl-aj-6D3"/>
-                            <constraint firstItem="sG0-Vy-GMy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RKh-oS-aWG"/>
-                            <constraint firstItem="rxa-w8-Z8r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g8U-Sx-Wh2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sG0-Vy-GMy" secondAttribute="bottom" id="mFZ-RS-w9k"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bXl-aV-9bJ">
-                        <barButtonItem key="rightBarButtonItem" title="Saved" id="M5v-Ik-s5O"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="authorLabel" destination="V1Z-9w-VXg" id="DdZ-WE-tEX"/>
-                        <outlet property="bgImageView" destination="rxa-w8-Z8r" id="QdD-SF-w7X"/>
-                        <outlet property="quoteTextView" destination="aE6-S5-B2T" id="kmM-ZZ-AHt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="-381.85907046476763"/>
-        </scene>
         <!--Master View Controller-->
         <scene sceneID="pnW-6n-jB7">
             <objects>
@@ -313,11 +216,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVl-Zd-AFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="337.78110944527737"/>
+            <point key="canvasLocation" x="959" y="-18"/>
         </scene>
     </scenes>
     <resources>
-        <image name="sample1" width="1920" height="1200"/>
         <image name="sample2" width="4831" height="2548"/>
     </resources>
 </document>

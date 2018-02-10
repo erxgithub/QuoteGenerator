@@ -40,8 +40,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  
-  //self.quote = [[Quote alloc] initWithQuote:@"" author:@"" image:nil];
   [self updateQuoteView];
 }
 
@@ -61,7 +59,7 @@
 }
 
 - (void)viewDidLayoutSubviews {
-  self.quoteView.frame = self.view.frame;
+//  self.quoteView.frame = self.view.frame;
 }
 
 
