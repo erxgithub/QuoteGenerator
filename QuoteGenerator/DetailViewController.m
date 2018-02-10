@@ -57,7 +57,7 @@
     
     UIActivityViewController *controller =
     [[UIActivityViewController alloc]
-     initWithActivityItems:@[text, capturedScreen]
+     initWithActivityItems:@[capturedScreen]
      applicationActivities:nil];
     
     [self presentViewController:controller animated:YES completion:nil];

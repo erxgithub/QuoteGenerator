@@ -32,7 +32,6 @@
         //RLMRealm *realm = [RLMRealm defaultRealm];
         for (Quote *quote in quotes) {
             [self.savedQuotes addObject:quote];
-            NSLog(@"%@, %@", quote.text, quote.author);
         }
     }
 
@@ -70,7 +69,6 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.quoteView.alpha = 0.0;
     }];
-    NSLog(@"%@", self.savedQuotes);
 }
 
 - (void)quoteTapped:(UIButton *)sender {
