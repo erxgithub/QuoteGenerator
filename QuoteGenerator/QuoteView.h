@@ -18,5 +18,6 @@
 - (void)setQuoteBackgroundImage:(UIImage *)image;
 - (void)saveViewContentToQuote;
 - (void)setBlurViewHeight;
+@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 
 @end

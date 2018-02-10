@@ -51,9 +51,8 @@
     UIGraphicsEndImageContext();
     [self.blurView setHidden:NO];
     
-    //Share image and text
-    
-    NSString *text = [NSString stringWithFormat:@"Favourite quote"];
+    //Share quote
+  
     
     UIActivityViewController *controller =
     [[UIActivityViewController alloc]
@@ -61,6 +60,10 @@
      applicationActivities:nil];
     
     [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (BOOL)prefersStatusBarHidden {
+  return YES;
 }
 
 @end

@@ -11,6 +11,7 @@
 
 @interface QuoteTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbNailImageView;
 @property (strong, nonatomic) Quote *quote;
 
 @end

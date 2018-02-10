@@ -50,7 +50,7 @@
 
 + (void)getBackgroundImageCompletionHandler:(void (^)(UIImage *))completion
 {
-  NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=f71ef240962b89ee62eb2a63d8524fe9&tags=landscape"];
+  NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=f71ef240962b89ee62eb2a63d8524fe9&tags=cats"];
   NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
   NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
   configuration.waitsForConnectivity = YES;
