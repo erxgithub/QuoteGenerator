@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *blurHeightConstraint;
 
 @end
 
@@ -62,6 +63,10 @@
   self.quote = [[Quote alloc] initWithQuote:self.quoteLabel.text
                                      author:self.authorLabel.text
                                       image:self.bgImageView.image];
+}
+
+- (void)setBlurViewHeight {
+    self.blurHeightConstraint.constant = self.quoteLabel.frame.size.height + self.authorLabel.frame.size.height + 50;
 }
 
 @end

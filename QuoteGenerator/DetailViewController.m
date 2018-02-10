@@ -11,10 +11,10 @@
 @interface DetailViewController ()
 
 @property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (strong, nonatomic) IBOutlet UIVisualEffectView *blurView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *blurHeightContraint;
 
 @end
 
@@ -28,7 +28,11 @@
     self.authorLabel.text = self.quote.author;
     self.bgImageView.image = [UIImage imageWithData:self.quote.backgroundImageData];
     [self.authorLabel sizeToFit];
+ 
+}
 
+- (void)viewDidLayoutSubviews {
+    self.blurHeightContraint.constant = self.quoteLabel.frame.size.height + self.authorLabel.frame.size.height + 50;
 }
 
 - (IBAction)backButton:(UIButton *)sender {

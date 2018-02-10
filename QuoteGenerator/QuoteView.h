@@ -17,5 +17,6 @@
 @property (nonatomic) Quote* quote;
 - (void)setQuoteBackgroundImage:(UIImage *)image;
 - (void)saveViewContentToQuote;
+- (void)setBlurViewHeight;
 
 @end

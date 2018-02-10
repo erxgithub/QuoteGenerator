@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -130,20 +129,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample2" translatesAutoresizingMaskIntoConstraints="NO" id="tIh-uS-pHd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgq-NF-CI5" userLabel="quoteBlur">
+                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgq-NF-CI5" userLabel="quoteBlur">
                                 <rect key="frame" x="0.0" y="123" width="375" height="267"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J2B-Zm-0r1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-hG-7UA">
-                                            <rect key="frame" x="20" y="20" width="345" height="64"/>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-hG-7UA">
+                                            <rect key="frame" x="20" y="20" width="345" height="48"/>
+                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBn-BT-V7a">
-                                            <rect key="frame" x="20" y="139" width="345" height="20.5"/>
+                                            <rect key="frame" x="20" y="236.5" width="345" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -151,14 +150,17 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="d6c-hG-7UA" firstAttribute="leading" secondItem="J2B-Zm-0r1" secondAttribute="leading" constant="20" id="1i2-oY-gHm"/>
+                                        <constraint firstAttribute="bottom" secondItem="aBn-BT-V7a" secondAttribute="bottom" constant="10" id="6ps-sG-kql"/>
                                         <constraint firstAttribute="trailing" secondItem="d6c-hG-7UA" secondAttribute="trailing" constant="10" id="EAg-jv-RbE"/>
                                         <constraint firstItem="aBn-BT-V7a" firstAttribute="leading" secondItem="d6c-hG-7UA" secondAttribute="leading" id="Fcl-R1-8rn"/>
-                                        <constraint firstItem="aBn-BT-V7a" firstAttribute="top" secondItem="d6c-hG-7UA" secondAttribute="bottom" constant="55" id="H7S-6z-LtV"/>
                                         <constraint firstItem="aBn-BT-V7a" firstAttribute="leading" secondItem="J2B-Zm-0r1" secondAttribute="leading" constant="20" id="LMa-lj-ksH"/>
                                         <constraint firstItem="d6c-hG-7UA" firstAttribute="top" secondItem="J2B-Zm-0r1" secondAttribute="top" constant="20" id="XaR-0I-DGP"/>
                                         <constraint firstAttribute="trailing" secondItem="aBn-BT-V7a" secondAttribute="trailing" constant="10" id="nVW-k1-9JZ"/>
                                     </constraints>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="267" id="r08-qC-YVp"/>
+                                </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-hk-WwF" userLabel="buttonBlur">
@@ -227,7 +229,6 @@
                             <constraint firstItem="tIh-uS-pHd" firstAttribute="top" secondItem="Nx9-ay-GTU" secondAttribute="top" constant="-20" id="H9J-4V-vl6"/>
                             <constraint firstItem="ADT-hk-WwF" firstAttribute="leading" secondItem="Nx9-ay-GTU" secondAttribute="leading" id="PnM-cf-ygg"/>
                             <constraint firstItem="tIh-uS-pHd" firstAttribute="trailing" secondItem="Nx9-ay-GTU" secondAttribute="trailing" id="UFh-JI-Bqx"/>
-                            <constraint firstItem="Wgq-NF-CI5" firstAttribute="height" secondItem="tIh-uS-pHd" secondAttribute="height" multiplier="0.4" id="f29-YF-arN"/>
                             <constraint firstItem="Nx9-ay-GTU" firstAttribute="trailing" secondItem="ADT-hk-WwF" secondAttribute="trailing" id="h8M-NQ-h0k"/>
                             <constraint firstItem="Wgq-NF-CI5" firstAttribute="leading" secondItem="Nx9-ay-GTU" secondAttribute="leading" id="m44-Db-qbL"/>
                             <constraint firstItem="tIh-uS-pHd" firstAttribute="bottom" secondItem="Nx9-ay-GTU" secondAttribute="bottom" id="yKB-vn-2Kj"/>
@@ -238,6 +239,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="aBn-BT-V7a" id="TR6-L7-z0n"/>
                         <outlet property="bgImageView" destination="tIh-uS-pHd" id="Dny-va-G2d"/>
+                        <outlet property="blurHeightContraint" destination="r08-qC-YVp" id="oYh-4P-mY5"/>
                         <outlet property="blurView" destination="ADT-hk-WwF" id="TSl-ZF-S3h"/>
                         <outlet property="quoteLabel" destination="d6c-hG-7UA" id="5oQ-3I-rEh"/>
                     </connections>

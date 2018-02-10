@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
+
 @property (nonatomic) QuoteView *quoteView;
 @property (nonatomic,) Quote *quote;
 
@@ -60,6 +61,7 @@
 
 - (void)viewDidLayoutSubviews {
   self.quoteView.frame = self.view.frame;
+    [self.quoteView setBlurViewHeight];
 }
 
 
