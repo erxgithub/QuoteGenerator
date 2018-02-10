@@ -10,7 +10,8 @@
 
 @interface DetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *quoteTextView;
+@property (strong, nonatomic) IBOutlet UILabel *quoteLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.quoteTextView.text = self.quote.text;
+    self.quoteLabel.text = self.quote.text;
     self.authorLabel.text = self.quote.author;
     self.bgImageView.image = [UIImage imageWithData:self.quote.backgroundImageData];
     [self.authorLabel sizeToFit];
