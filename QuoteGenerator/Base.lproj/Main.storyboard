@@ -69,7 +69,7 @@
                                     <outlet property="delegate" destination="7F6-9H-oUL" id="k8R-iK-S9w"/>
                                 </connections>
                             </tableView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLx-TA-xa6">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLx-TA-xa6">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FEO-iP-CSC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -177,19 +177,18 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-hk-WwF" userLabel="buttonBlur">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-hk-WwF" userLabel="buttonBlur">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nBX-2m-Nun">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="vSO-TL-Mm9">
-                                            <rect key="frame" x="40" y="15" width="295" height="30"/>
+                                            <rect key="frame" x="40" y="14" width="295" height="32"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMC-TQ-Uf3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                    <state key="normal" title="Back"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMC-TQ-Uf3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="32"/>
+                                                    <state key="normal" image="Back_Arrow"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="10"/>
@@ -199,10 +198,9 @@
                                                         <action selector="backButton:" destination="qQN-Qw-4l7" eventType="touchUpInside" id="bcp-IQ-j3V"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8e-PT-vev">
-                                                    <rect key="frame" x="197.5" y="0.0" width="97.5" height="30"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                    <state key="normal" title="Share"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8e-PT-vev">
+                                                    <rect key="frame" x="197.5" y="0.0" width="97.5" height="32"/>
+                                                    <state key="normal" image="Share"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="10"/>
@@ -258,6 +256,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back_Arrow" width="32" height="32"/>
+        <image name="Share" width="32" height="32"/>
         <image name="icons8-settings-50" width="25" height="25"/>
         <image name="sample2" width="4831" height="2548"/>
     </resources>
