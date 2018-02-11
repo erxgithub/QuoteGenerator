@@ -82,6 +82,26 @@
 }
 
 - (void)saveTapped:(UIButton *)sender {
+    self.quoteView.saveButton.enabled = NO;
+    
+    if ([self quoteAlreadySaved:self.quoteView.quote.text]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Quote already saved" message:@""                               preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"OK action");
+                                   }];
+        
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+
+        return;
+    }
+    
   [self.quoteView saveViewContentToQuote];
   
   [self.savedQuotes addObject:self.quoteView.quote];
@@ -108,6 +128,17 @@
   
   [self presentViewController:alertController animated:YES completion:nil];
   
+}
+
+- (BOOL)quoteAlreadySaved:(NSString *)quoteText {
+    BOOL quoteSaved = NO;
+    for (Quote *quote in self.savedQuotes) {
+        if ([quoteText isEqualToString:quote.text]) {
+            quoteSaved = YES;
+            break;
+        }
+    }
+    return quoteSaved;
 }
 
 # pragma mark - tableView button actions
@@ -191,6 +222,7 @@
 - (void)updateQuoteView {
   [self setupQuote];
   [self setupBackgroundImage];
+    self.quoteView.saveButton.enabled = YES;
 }
 
 #pragma mark - New Quote
