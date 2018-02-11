@@ -69,11 +69,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imL-b4-rOw">
                                         <rect key="frame" x="0.0" y="0.0" width="91.5" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="Next Quote"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
@@ -84,9 +82,6 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="Save"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
@@ -97,9 +92,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Quote List"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidh">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
@@ -114,9 +106,6 @@
                             <constraint firstItem="kTC-P1-Vgt" firstAttribute="centerY" secondItem="dPb-AN-dgV" secondAttribute="centerY" id="h9c-Qm-XcS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.conerRadius">
                                 <integer key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
@@ -127,14 +116,43 @@
                     </constraints>
                     <blurEffect style="light"/>
                 </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNL-i8-9Ph">
+                    <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NId-TP-IWT">
+                            <rect key="frame" x="27" y="8" width="96.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="string" translatesAutoresizingMaskIntoConstraints="NO" id="cnO-7U-Ptc">
+                            <rect key="frame" x="-0.5" y="50" width="151" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="ZvP-D1-tHu"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="cnO-7U-Ptc" firstAttribute="leading" secondItem="FNL-i8-9Ph" secondAttribute="leading" id="13Z-u8-Tz6"/>
+                        <constraint firstAttribute="height" constant="150" id="5iU-6n-2uN"/>
+                        <constraint firstAttribute="width" constant="150" id="Dei-dx-iIi"/>
+                        <constraint firstItem="NId-TP-IWT" firstAttribute="top" secondItem="FNL-i8-9Ph" secondAttribute="top" constant="8" id="Uhi-UT-GHp"/>
+                        <constraint firstAttribute="trailing" secondItem="cnO-7U-Ptc" secondAttribute="trailing" id="chl-MG-FNg"/>
+                        <constraint firstAttribute="bottom" secondItem="cnO-7U-Ptc" secondAttribute="bottom" id="n7c-RS-OPh"/>
+                        <constraint firstItem="NId-TP-IWT" firstAttribute="centerX" secondItem="FNL-i8-9Ph" secondAttribute="centerX" id="p0S-uX-g5d"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="FNL-i8-9Ph" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1mZ-9Q-Jew"/>
                 <constraint firstItem="kbm-VH-fN8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="103" id="8Gq-Hs-sNy"/>
                 <constraint firstItem="OH6-bc-r54" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="B9U-BS-2YY"/>
                 <constraint firstItem="QiH-qN-HTp" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="MDK-Tb-dQ5"/>
                 <constraint firstItem="QiH-qN-HTp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="T8m-zo-7dq"/>
                 <constraint firstItem="kbm-VH-fN8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Uvk-TH-95W"/>
+                <constraint firstItem="FNL-i8-9Ph" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Vq7-uQ-JUd"/>
                 <constraint firstItem="kbm-VH-fN8" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ftc-2v-pe1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OH6-bc-r54" secondAttribute="trailing" id="gyr-RU-rJm"/>
                 <constraint firstItem="QiH-qN-HTp" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="iee-iV-hmW"/>
@@ -150,11 +168,13 @@
                 <outlet property="quoteButton" destination="imL-b4-rOw" id="jQ5-Be-nwX"/>
                 <outlet property="quoteLabel" destination="1i0-59-Kzf" id="M8J-fW-5sZ"/>
                 <outlet property="saveButton" destination="yQO-I4-5e0" id="iZ7-eE-IPb"/>
+                <outlet property="saveView" destination="FNL-i8-9Ph" id="nEL-Aa-FaC"/>
             </connections>
             <point key="canvasLocation" x="-112.5" y="36.5"/>
         </view>
     </objects>
     <resources>
         <image name="sample1" width="1920" height="1200"/>
+        <image name="string" width="314" height="181"/>
     </resources>
 </document>

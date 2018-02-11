@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 @property (strong, nonatomic) IBOutlet UIButton *quoteButton;
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UIView *saveView;
 
 @property (nonatomic) Quote* quote;
 - (void)setQuoteBackgroundImage:(UIImage *)image;

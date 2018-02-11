@@ -53,6 +53,7 @@
   [self.quoteView.closeButton addTarget:self action:@selector(closeTapped:) forControlEvents:UIControlEventTouchUpInside];
   [self.quoteView.quoteButton addTarget:self action:@selector(quoteTapped:) forControlEvents:UIControlEventTouchUpInside];
   [self.quoteView.saveButton addTarget:self action:@selector(saveTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.quoteView.saveView.alpha = 0.0;
 }
 
 - (void)setupRealm {
@@ -113,21 +114,34 @@
   }];
   
   [self.tableView reloadData];
+ 
+    [self.quoteView bringSubviewToFront:self.quoteView.saveView];
+
+    //fade in
+    [UIView animateWithDuration:1.0 animations:^{
+        self.quoteView.saveView.alpha = 0.8;
+    } completion:^(BOOL finished) {
+        //fade out
+        [UIView animateWithDuration:1.0 animations:^{
+            self.quoteView.saveView.alpha = 0.0;
+        } completion:nil];
+    }];
+
+//  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
+//
+//  UIAlertAction *okAction = [UIAlertAction
+//                             actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+//                             style:UIAlertActionStyleDefault
+//                             handler:^(UIAlertAction *action)
+//                             {
+//                               NSLog(@"OK action");
+//                             }];
+//
+//  [alertController addAction:okAction];
+//
+//  [self presentViewController:alertController animated:YES completion:nil];
   
-  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Saved" message:@"Quote saved"                               preferredStyle:UIAlertControllerStyleAlert];
-  
-  UIAlertAction *okAction = [UIAlertAction
-                             actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction *action)
-                             {
-                               NSLog(@"OK action");
-                             }];
-  
-  [alertController addAction:okAction];
-  
-  [self presentViewController:alertController animated:YES completion:nil];
-  
+    
 }
 
 - (BOOL)quoteAlreadySaved:(NSString *)quoteText {
@@ -223,6 +237,7 @@
   [self setupQuote];
   [self setupBackgroundImage];
     self.quoteView.saveButton.enabled = YES;
+    self.quoteView.saveView.alpha = 0.0;
 }
 
 #pragma mark - New Quote
