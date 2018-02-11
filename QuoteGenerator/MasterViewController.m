@@ -43,6 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
    [self setupRealm];
+  
 }
 
 - (void)setupQuoteView  {
@@ -82,10 +83,10 @@
 
 - (void)saveTapped:(UIButton *)sender {
   [self.quoteView saveViewContentToQuote];
+  
   [self.savedQuotes addObject:self.quoteView.quote];
   
   // write to realm
-  // Persist your data easily
   RLMRealm *realm = [RLMRealm defaultRealm];
   [realm transactionWithBlock:^{
     [realm addObject:self.quoteView.quote];
@@ -161,7 +162,6 @@
     
     [self.savedQuotes removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
   }
 }
 
@@ -189,7 +189,6 @@
 #pragma mark - New Quote
 - (void) setupQuote {
   [NetworkManager getQuoteDataCompletionHandler:^void(Quote *quote) {
-    //    self.quoteView.quote = [[Quote alloc] initWithQuote:quote];
     self.quoteView.quote = quote;
   }];
 }
