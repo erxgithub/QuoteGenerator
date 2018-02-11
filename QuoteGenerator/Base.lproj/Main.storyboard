@@ -75,23 +75,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xys-3X-zeT">
-                                            <rect key="frame" x="268" y="9" width="56" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                            <state key="normal" title="Edit"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xys-3X-zeT">
+                                            <rect key="frame" x="300" y="12" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="TGa-VU-EyC"/>
+                                                <constraint firstAttribute="width" constant="25" id="tCq-I4-D9i"/>
+                                            </constraints>
+                                            <state key="normal" image="icons8-settings-50"/>
+                                            <state key="disabled" image="icons8-settings-50"/>
+                                            <state key="selected" image="icons8-settings-50"/>
+                                            <state key="highlighted" image="icons8-settings-50"/>
                                             <connections>
                                                 <action selector="toggleTableEdit:" destination="7F6-9H-oUL" eventType="touchUpInside" id="b7z-ZN-4Gz"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpa-Uw-hhE">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpa-Uw-hhE">
                                             <rect key="frame" x="170" y="0.0" width="35" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                             <state key="normal" title="➕"/>
                                             <connections>
@@ -99,6 +98,12 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xys-3X-zeT" firstAttribute="centerY" secondItem="Zpa-Uw-hhE" secondAttribute="centerY" id="IUj-vr-D4Y"/>
+                                        <constraint firstItem="xys-3X-zeT" firstAttribute="leading" secondItem="Zpa-Uw-hhE" secondAttribute="trailing" constant="95" id="IxP-gv-ajt"/>
+                                        <constraint firstAttribute="trailing" secondItem="xys-3X-zeT" secondAttribute="trailing" constant="50" id="P5E-e9-dAv"/>
+                                        <constraint firstItem="xys-3X-zeT" firstAttribute="top" secondItem="FEO-iP-CSC" secondAttribute="top" constant="12" id="eQF-H0-Vpa"/>
+                                    </constraints>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="zan-T0-oEY"/>
@@ -253,6 +258,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-settings-50" width="25" height="25"/>
         <image name="sample2" width="4831" height="2548"/>
     </resources>
 </document>
